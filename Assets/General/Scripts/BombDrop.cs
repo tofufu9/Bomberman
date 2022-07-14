@@ -8,19 +8,22 @@ public class BombDrop : MonoBehaviour {
 	GameObject[] bombs;
 	private bool canDrop = true;
 
-	void Update () { //Verifica se a quantidade atual de bombas no cenário não ultrapassa o limite de bombas do player
+	void Update ()
+	{ //Checks if the current amount of bombs in the scenario does not exceed the player's bomb limit
 		bombs = GameObject.FindGameObjectsWithTag("Bomba");
 		if (bombs.Length < PlayerBehaviour.bombAmount && canDrop) {
 			bombDrop ();
 		}
 	}
 
-	void OnTriggerStay2D(Collider2D other){ // Verifica quando o Player está encima da bomba
+	void OnTriggerStay2D(Collider2D other)
+	{ // Checks when the Player is on top of the bomb
 		if (other.CompareTag ("Bomba") || other.CompareTag("BossBomb")) {
 			canDrop = false;
 		}
 	}
-	void OnTriggerExit2D(Collider2D other){ // Verifica quando o Player sai de cima da bomba
+	void OnTriggerExit2D(Collider2D other)
+	{ //Checks when the Player leaves the bomb
 		if (other.CompareTag ("Bomba")) {
 			canDrop = true;
 		}

@@ -14,7 +14,7 @@ public class BombEaterBehaviour : MonoBehaviour
 
     public int life = 3;
     public static float time;
-    public bool hittable = true; //Variável para saber se o inimigo está na animação de dano ou não
+    public bool hittable = true; //Variable to know if the enemy is in the damage animation or not
     public static Rigidbody2D rig;
 
     void Start()
@@ -87,7 +87,7 @@ public class BombEaterBehaviour : MonoBehaviour
             }
 
             if (transform.position.x >= pos.x + 1 || transform.position.y >= pos.y + 1
-               || transform.position.x <= pos.x - 1 || transform.position.y <= pos.y - 1)   //A cada fixed update, verifica se a posição mudou em 1 e então escolhe uma nova direção        
+               || transform.position.x <= pos.x - 1 || transform.position.y <= pos.y - 1)   //Every fixed update, check if the position has changed by 1 and then choose a new direction        
             {
                 if ((transform.position.x / Mathf.Round(transform.position.x) != 1 || transform.position.y / Mathf.Round(transform.position.y) != 1))
                 {
@@ -100,7 +100,7 @@ public class BombEaterBehaviour : MonoBehaviour
         }       
     }    
 
-    void ChangeDirection() //Função para mudar a direção do inimigo
+    void ChangeDirection() //Function to change enemy direction
     {       
         previousIndex = randomIndex;       
         if (orientation == true)
@@ -117,7 +117,7 @@ public class BombEaterBehaviour : MonoBehaviour
         }
     } 
 
-    void Move(int direction) //Função para mover o inimigo dependendo do raio escolhido
+    void Move(int direction) //Function to move the enemy depending on the chosen radius
     {        
         switch (direction)
         {
@@ -153,7 +153,7 @@ public class BombEaterBehaviour : MonoBehaviour
                 break;
         }
     }  
-    void InitialDirection() //Função para escolher a direção inicial
+    void InitialDirection() //Function to choose the starting direction
     {
         do
         {
@@ -174,7 +174,7 @@ public class BombEaterBehaviour : MonoBehaviour
             orientation = false;
         }
     }
-    void TestBomb() //Função para testar se há bomba perto
+    void TestBomb() //Function to test if there is a bomb nearby
     {
         for (int i = 0; i < 4; i++)
         {
@@ -202,12 +202,12 @@ public class BombEaterBehaviour : MonoBehaviour
         }
     }
 
-    Collider2D Raycasting(int index, float size) //Função para testar a direção aleatória do raio
+    Collider2D Raycasting(int index, float size) //Function to test the random direction of the ray
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection[index], size, checkOnlyThis);        
         return hit.collider;
     }    
-    void OnTriggerEnter2D(Collider2D other) //Função para matar o player
+    void OnTriggerEnter2D(Collider2D other) //Function to kill the player
     {
 
         if (other.gameObject.CompareTag("Player"))
@@ -223,7 +223,7 @@ public class BombEaterBehaviour : MonoBehaviour
         }
     }
 
-    private void GotHit() //Função para animação de dano do inimigo
+    private void GotHit() //Enemy damage animation function
     {
         if (hittable == false)
         {

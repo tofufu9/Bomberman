@@ -5,7 +5,7 @@ using UnityEngine;
 public class DestroyObject : MonoBehaviour {
 
     public void DestroyMe()
-    { //Utilizado no animation event ao final da animação
+    { //Used in the animation event at the end of the animation
         Destroy(gameObject);
     }
 }

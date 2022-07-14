@@ -8,7 +8,8 @@ public class InstantiatePowerUp : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other){
 		
-		if (other.CompareTag("Explosion")) { //Aguarda a explosão não existir mais para instancear o powerup				
+		if (other.CompareTag("Explosion"))
+		{ //Wait for the explosion to no longer exist to instance the powerup			
 			Invoke("instantiatePowerUp",0.1f);
 			//instantiatePowerUp ();
 			Invoke("DestroyThis", 0.15f);
